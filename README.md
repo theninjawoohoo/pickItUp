@@ -7,6 +7,11 @@ This is Trashymon. An app where you can collect garbage and save the world.
 
 * [Android Studio](https://developer.android.com/studio) - The mobile building application
 
+* [Google Machine Vision API](https://cloud.google.com/products/ai/) - Used to recognize garbage 
+
+* [Google Maps API](https://developers.google.com/maps/documentation) - Used to create depots
+
+
 ## Creators
 
 * **Alvin Ho** - Back End Developer
