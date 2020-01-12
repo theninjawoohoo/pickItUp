@@ -10,6 +10,7 @@ import com.google.cloud.vision.v1.ImageAnnotatorClient;
 import com.google.protobuf.ByteString;
 
 import java.io.FileInputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 public class detectLabels {
     private static List<String> labels;
 
-    public static void detectLabels(String filePath, PrintStream out) throws Exception {
+    public static void detectLabels(String filePath) throws Exception {
         List<AnnotateImageRequest> requests = new ArrayList<>();
         labels = new ArrayList<>();
 
@@ -35,7 +36,7 @@ public class detectLabels {
 
             for (AnnotateImageResponse res : responses) {
                 if (res.hasError()) {
-                    out.printf("Error: %s\n", res.getError().getMessage());
+                    System.out.printf("Error: %s\n", res.getError().getMessage());
                     return;
                 }
 

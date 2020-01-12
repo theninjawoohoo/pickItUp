@@ -35,8 +35,9 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.camera);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        setUpLeaderBoardButton();
         setUpPictureButton();
+        setUpAiButton();
     }
 
     @Override
@@ -72,6 +73,28 @@ public class CameraActivity extends AppCompatActivity {
         });
     }
 
+    private void setUpLeaderBoardButton() {
+        ImageButton leaderBoard = (ImageButton) findViewById(R.id.icon_leaderboard);
+        leaderBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CameraActivity.this, Leaderboard.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setUpAiButton() {
+        ImageButton aiButton = (ImageButton) findViewById(R.id.icon_monster);
+        aiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CameraActivity.this, MachineVision.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     static final int REQUEST_TAKE_PHOTO = 1;
 
     private void dispatchTakePictureIntent() {
@@ -103,8 +126,6 @@ public class CameraActivity extends AppCompatActivity {
                         // app-defined int constant. The callback method gets the
                         // result of the request.
                     }
-                } else {
-
                 }
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.example.android.FileProvider",
