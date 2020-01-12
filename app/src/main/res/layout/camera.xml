@@ -37,7 +37,7 @@ android:layout_height="fill_parent"
         android:layout_height="565dp" />
 
     <ImageButton
-        android:id="@+id/cameraButton"
+        android:id="@+id/take_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/camera_button"

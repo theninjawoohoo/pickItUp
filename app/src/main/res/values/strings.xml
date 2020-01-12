@@ -11,4 +11,6 @@
     <string name="back_button">back</string>
     <string name="use_location">Please dispose item at an applicable location</string>
     <string name="test_button"> </string>
+    <string name="multilines">keep\ncollecting</string>
+    <string name="bag_items">bag items</string>
 </resources>
