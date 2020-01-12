@@ -61,7 +61,7 @@ public class CreateUser extends AppCompatActivity {
                 //Enter the map
                 EditText name = (EditText) findViewById(R.id.editEmail);
                 UserSingleton.getInstance(getApplicationContext()).setName(name.getText().toString());
-                Intent intent = new Intent(CreateUser.this, MapsActivity.class);
+                Intent intent = new Intent(CreateUser.this, CameraActivity.class);
                 startActivity(intent);
             }
         });
