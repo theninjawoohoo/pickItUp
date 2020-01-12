@@ -1,14 +1,24 @@
 package Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -18,6 +28,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,13 +44,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_maps2);
+        setUpBackButton();
+        setUpCameraButton();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
 
     /**
      * Manipulates the map once available.
@@ -67,7 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onComplete(@NonNull Task task) {
                 if (task.isSuccessful()) {
-                    Log.d("MapActivty", "Found Your Location");
+                    Log.d("MapActivity", "Found Your Location");
                     Location currentLocation = (Location) task.getResult();
 
                     //Get latitude and longitude of my location
@@ -75,14 +87,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlngCoords, 15));
                 }
                 else {
-                    Log.d("MapActivty", "onComplete: current location cannot be found");
+                    Log.d("MapActivity", "onComplete: current location cannot be found");
                     Toast.makeText(MapsActivity.this,"Where are you?", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         mMap.setMyLocationEnabled(true);
-
+        placeMarkers(mMap);
 
     }
 
@@ -103,5 +115,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    private void placeMarkers(GoogleMap map) {
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(49.2624994, -123.2449820))
+                .icon(BitmapDescriptorFactory.defaultMarker(123))
+                .title("East Atrium Garbage Bin"));
+
+
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(49.2623478, -123.2453487))
+                .icon(BitmapDescriptorFactory.defaultMarker(322))
+                .title("West Atrium Garbage Bin"));
+
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(49.2626845, -123.2442246))
+                .icon(BitmapDescriptorFactory.defaultMarker(230))
+                .title("Garbage Bin Outside"));
+
+    }
+
+    private void setUpBackButton() {
+        ImageButton closeButton = (ImageButton) findViewById(R.id.back_button);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void setUpCameraButton() {
+        ImageButton cameraButton = (ImageButton) findViewById(R.id.camera_button);
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, CameraActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 }
