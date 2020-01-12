@@ -38,6 +38,7 @@ public class CameraActivity extends AppCompatActivity {
         setUpLeaderBoardButton();
         setUpPictureButton();
         setUpAiButton();
+        setUpMonster();
     }
 
     @Override
@@ -100,7 +101,7 @@ public class CameraActivity extends AppCompatActivity {
         monsterProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CameraActivity.this, MachineVision.class);
+                Intent intent = new Intent(CameraActivity.this, Monster.class);
                 startActivity(intent);
             }
         });

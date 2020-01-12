@@ -2,15 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@mipmap/my_monster"
-        android:contentDescription="@string/monster_button"
-        />
+    android:layout_height="match_parent"
+    android:background="@drawable/my_monster"
+    >
 
     <Button
         android:id="@+id/back_button"
