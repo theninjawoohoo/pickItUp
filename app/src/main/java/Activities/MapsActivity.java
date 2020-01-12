@@ -18,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -82,7 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         mMap.setMyLocationEnabled(true);
-
+        placeMarkers(mMap);
 
     }
 
@@ -102,6 +103,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
         }
     }
+
+    private void placeMarkers(GoogleMap map) {
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(49.2624994, -123.2449820))
+                .icon(BitmapDescriptorFactory.defaultMarker(123))
+                .title("East Atrium Garbage Bin"));
+
+
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(49.2623478, -123.2453487))
+                .icon(BitmapDescriptorFactory.defaultMarker(322))
+                .title("West Atrium Garbage Bin"));
+
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(49.2626845, -123.2442246))
+                .icon(BitmapDescriptorFactory.defaultMarker(230))
+                .title("Garbage Bin Outside"));
+
+    }
+
 
 
 }
