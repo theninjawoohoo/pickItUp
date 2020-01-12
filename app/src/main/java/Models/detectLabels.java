@@ -1,3 +1,5 @@
+package Models;
+
 import com.google.cloud.vision.v1.AnnotateImageRequest;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
 import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class detectLabels {
     private static List<String> labels;
+
     public static void detectLabels(String filePath, PrintStream out) throws Exception {
         List<AnnotateImageRequest> requests = new ArrayList<>();
         labels = new ArrayList<>();
