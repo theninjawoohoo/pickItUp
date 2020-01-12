@@ -11,24 +11,22 @@ android:layout_height="fill_parent"
         android:layout_height="80dp">
 
         <ImageButton
-            android:id="@+id/iconMonster"
+            android:id="@+id/icon_monster"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
             android:layout_weight="0.25"
             android:contentDescription="@string/monster_button"
-            app:srcCompat="@drawable/iconMonster" />
+            app:srcCompat="@drawable/icon_monster" />
 
         <ImageButton
-            android:id="@+id/iconLeaderboard"
+            android:id="@+id/icon_leaderboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
             android:layout_weight="0.25"
             android:contentDescription="@string/leaderboard_button"
-            app:srcCompat="@drawable/iconLeaderboard" />
+            app:srcCompat="@drawable/icon_leaderboard" />
     </LinearLayout>
 
     <SurfaceView
@@ -43,6 +41,6 @@ android:layout_height="fill_parent"
         android:contentDescription="@string/camera_button"
         android:layout_marginStart="160dp"
         android:layout_marginEnd="160dp"
-        app:srcCompat="@drawable/iconCamera" />
+        app:srcCompat="@drawable/icon_camera" />
 
 </LinearLayout>
