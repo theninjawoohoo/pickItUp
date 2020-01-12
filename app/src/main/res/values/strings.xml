@@ -13,4 +13,5 @@
     <string name="test_button"> </string>
     <string name="camera_button">KEEP COLLECTING</string>
     <string name="bag_button">BAG ITEMS</string>
+    <string name="find_loc">Find Locations</string>
 </resources>
