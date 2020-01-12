@@ -3,5 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="login_button">Login</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="monster_button"myMonster</string>
+    <string name="monster_button">myMonster</string>
+    <string name="leaderboard_button">myLeaderboard</string>
+    <string name="camera_button">snapPhoto</string>
 </resources>
