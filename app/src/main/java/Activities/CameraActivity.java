@@ -1,6 +1,8 @@
 package Activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -8,6 +10,8 @@ import com.example.myapplication.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.os.Environment;
@@ -20,6 +24,8 @@ import android.widget.ImageButton;
 
 import java.io.File;
 import java.io.IOException;
+
+import Models.UserSingleton;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -81,6 +87,25 @@ public class CameraActivity extends AppCompatActivity {
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
+                if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                        Manifest.permission.READ_CONTACTS)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                            Manifest.permission.CAMERA)) {
+                    } else {
+
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.CAMERA},3
+                                );
+
+                        // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                        // app-defined int constant. The callback method gets the
+                        // result of the request.
+                    }
+                } else {
+
+                }
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.example.android.FileProvider",
                         photoFile);
