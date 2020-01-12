@@ -42,6 +42,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.gms.vision.API_KEY"
+            android:value="AIzaSyAj2XY4Tqd_TWj2wT9sd2Y4JZlMNqr1DCQ"/>
     </application>
 
 </manifest>
