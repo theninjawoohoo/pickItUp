@@ -5,7 +5,12 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="monster_button">myMonster</string>
     <string name="leaderboard_button">myLeaderboard</string>
-    <string name="camera_button">snapPhoto</string>
+    <string name="take_photo">snapPhoto</string>
     <string name="title_activity_maps">Map</string>
     <string name="back_leader">backup</string>
+    <string name="back_button">back</string>
+    <string name="use_location">Please dispose item at an applicable location</string>
+    <string name="test_button"> </string>
+    <string name="camera_button">KEEP COLLECTING</string>
+    <string name="bag_button">BAG ITEMS</string>
 </resources>
