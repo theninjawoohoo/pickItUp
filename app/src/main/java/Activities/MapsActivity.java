@@ -1,14 +1,21 @@
 package Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -41,7 +48,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -68,7 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onComplete(@NonNull Task task) {
                 if (task.isSuccessful()) {
-                    Log.d("MapActivty", "Found Your Location");
+                    Log.d("MapActivity", "Found Your Location");
                     Location currentLocation = (Location) task.getResult();
 
                     //Get latitude and longitude of my location
@@ -76,7 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlngCoords, 15));
                 }
                 else {
-                    Log.d("MapActivty", "onComplete: current location cannot be found");
+                    Log.d("MapActivity", "onComplete: current location cannot be found");
                     Toast.makeText(MapsActivity.this,"Where are you?", Toast.LENGTH_SHORT).show();
                 }
             }
