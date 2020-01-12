@@ -4,11 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.myapplication.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import Models.UserSingleton;
 
 import android.view.View;
@@ -61,7 +58,7 @@ public class CreateUser extends AppCompatActivity {
                 //Enter the map
                 EditText name = (EditText) findViewById(R.id.editEmail);
                 UserSingleton.getInstance(getApplicationContext()).setName(name.getText().toString());
-                Intent intent = new Intent(CreateUser.this, CameraActivity.class);
+                Intent intent = new Intent(CreateUser.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

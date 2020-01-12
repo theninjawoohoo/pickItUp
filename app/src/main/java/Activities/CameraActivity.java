@@ -32,7 +32,7 @@ public class CameraActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.camera);
+        setContentView(R.layout.camera_constrained);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setUpLeaderBoardButton();
@@ -63,7 +63,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void setUpPictureButton() {
-        ImageButton camera = (ImageButton) findViewById(R.id.cameraButton);
+        ImageButton camera = (ImageButton) findViewById(R.id.camera_button);
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +85,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void setUpAiButton() {
-        ImageButton aiButton = (ImageButton) findViewById(R.id.icon_monster);
+        Button aiButton = (Button) findViewById(R.id.test_button);
         aiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +93,19 @@ public class CameraActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setUpMonster() {
+        ImageButton monsterProfile = (ImageButton) findViewById(R.id.icon_monster);
+        monsterProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CameraActivity.this, MachineVision.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     static final int REQUEST_TAKE_PHOTO = 1;
