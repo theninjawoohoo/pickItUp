@@ -1,5 +1,6 @@
 package Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.myapplication.R;
@@ -8,12 +9,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import Models.UserSingleton;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class CreateUser extends AppCompatActivity {
 
@@ -25,8 +28,6 @@ public class CreateUser extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         setUpLoginButton();
 
@@ -59,7 +60,11 @@ public class CreateUser extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Enter the map
+                EditText name = (EditText) findViewById(R.id.editEmail);
+                UserSingleton.getInstance(getApplicationContext()).setName(name.getText().toString());
+                Intent intent = new Intent(CreateUser.this, MapsActivity.class);
+                startActivity(intent);
             }
         });
     }
