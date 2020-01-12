@@ -1,5 +1,6 @@
 package Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.myapplication.R;
@@ -25,8 +26,6 @@ public class CreateUser extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         setUpLoginButton();
 
@@ -59,7 +58,9 @@ public class CreateUser extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Enter the map
+                Intent intent = new Intent(CreateUser.this, MapsActivity.class);
+                startActivity(intent);
             }
         });
     }
