@@ -9,6 +9,8 @@ public class UserSingleton {
 
     private String name;
 
+    private String photoPath;
+
     private Trash someTrash;
 
     public static UserSingleton getInstance(Context context) {
@@ -26,6 +28,10 @@ public class UserSingleton {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getPhotoPath() { return photoPath; }
+
+    public void setPhotoPath(String photoPath) { this.photoPath = photoPath; }
 
     private UserSingleton() {
     }

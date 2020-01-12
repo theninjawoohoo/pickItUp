@@ -93,6 +93,7 @@ public class CameraActivity extends AppCompatActivity {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                UserSingleton.getInstance(getApplicationContext()).setPhotoPath(currentPhotoPath);
             }
         }
     }
@@ -111,6 +112,7 @@ public class CameraActivity extends AppCompatActivity {
 
         // Save a file: path for use with ACTION_VIEW intents
         currentPhotoPath = image.getAbsolutePath();
+
 //        Context context = getApplicationContext();
 //        CharSequence text = currentPhotoPath;
 //        int duration = Toast.LENGTH_SHORT;
